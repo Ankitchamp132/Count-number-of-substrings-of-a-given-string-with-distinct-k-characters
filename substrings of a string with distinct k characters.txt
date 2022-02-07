@@ -1,0 +1,29 @@
+#include <iostream>
+#include <unordered_set>
+using namespace std;
+
+
+int main(){
+    string x="abaaca";
+    string st="";
+    unordered_set<char>s;
+    int k=1;
+    for(int len=1;len<=x.length();len++){
+        for(int i=0;i<=x.length()-len;i++){
+            int start=i;
+            int end=start+len-1;
+            for(int j=start;j<=end;j++){
+                st=st+x[j];
+            }
+            for(int z=0;z<st.length();z++){
+                s.insert(st[z]);
+            }
+            if(s.size()==k){
+                cout<<st<<endl;
+            }
+            st.clear();
+            s.clear();
+        }
+    }
+    return 0;
+}
